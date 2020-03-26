@@ -38,7 +38,6 @@ const artworksFetched = artworks => ({
 export const loadArtworks = limitValue => async (dispatch, getState) => {
   try {
     if (getState().artworks.total) return;
-    console.log("FUNCTION!!!");
     const response = await superagent
       .get(`${baseUrl}/artworks`)
       .query({ limit: limitValue });

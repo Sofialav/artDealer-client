@@ -5,14 +5,13 @@ import { loadArtworks } from "../store/actions";
 
 class MainPageContainer extends Component {
   componentDidMount() {
-    console.log("MOUNT");
     const limit = 6;
     this.props.loadArtworks(limit);
   }
   render() {
     return (
       <main>
-        <MainPageWorks />
+        <MainPageWorks artworks={this.props.artworks} />
       </main>
     );
   }
