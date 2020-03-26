@@ -1,5 +1,5 @@
 import superagent from "superagent";
-import { errorHandling } from "./errors";
+import { errorHandling, removeError } from "./errors";
 const baseUrl = "http://localhost:4000";
 
 // loading artworks
@@ -28,7 +28,7 @@ const artistsFetched = artists => ({
 });
 export const loadArtists = limitValue => async (dispatch, getState) => {
   try {
-    if (getState().artists.total) return;
+    if (getState().artists.total) return null;
     const response = await superagent
       .get(`${baseUrl}/artists`)
       .query({ limit: limitValue });
@@ -38,3 +38,22 @@ export const loadArtists = limitValue => async (dispatch, getState) => {
     errorHandling(dispatch, error);
   }
 };
+// login
+export const JWT = "JWT";
+const loginUser = payload => ({
+  type: JWT,
+  payload
+});
+export function login(data, history) {
+  return async function(dispatch) {
+    try {
+      const response = await superagent.post(`${baseUrl}/login`).send(data);
+      const action = loginUser(response.body.jwt);
+      await dispatch(action);
+      await dispatch(removeError());
+      return history.push("/myPage");
+    } catch (error) {
+      errorHandling(dispatch, error);
+    }
+  };
+}

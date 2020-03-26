@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import LoginForm from "./AuthForm";
 import { connect } from "react-redux";
+import { login } from "../../store/actions/";
 
 class LoginFormContainer extends Component {
   state = { login: "", password: "" };
@@ -8,7 +9,7 @@ class LoginFormContainer extends Component {
   onSubmit = event => {
     event.preventDefault();
     this.props.login(this.state, this.props.history);
-    this.setState({ name: "", password: "" });
+    this.setState({ login: "", password: "" });
   };
   onChange = event => {
     this.setState({
@@ -31,4 +32,4 @@ class LoginFormContainer extends Component {
   }
 }
 
-export default connect(null)(LoginFormContainer);
+export default connect(null, { login })(LoginFormContainer);
