@@ -18,7 +18,7 @@ class MainPageArtists extends Component {
       return (
         <section>
           <h2>Latest artists</h2>
-          {artist}
+          <div>{artist}</div>
           <Link to="/artists">
             <button>All artists</button>
           </Link>
