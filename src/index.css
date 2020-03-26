@@ -15,3 +15,9 @@ code {
 section {
   border: 2px solid black;
 }
+
+nav {
+  border: 2px solid blue;
+  display: flex;
+  justify-content: space-evenly;
+}
