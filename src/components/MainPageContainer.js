@@ -5,6 +5,7 @@ import { loadArtworks } from "../store/actions";
 
 class MainPageContainer extends Component {
   componentDidMount() {
+    console.log("MOUNT");
     const limit = 6;
     this.props.loadArtworks(limit);
   }
@@ -16,5 +17,7 @@ class MainPageContainer extends Component {
     );
   }
 }
-
-export default connect(null, { loadArtworks })(MainPageContainer);
+const mapStateToProps = state => ({
+  artworks: state.artworks
+});
+export default connect(mapStateToProps, { loadArtworks })(MainPageContainer);
