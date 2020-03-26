@@ -15,7 +15,7 @@ class MainPageWorks extends Component {
       return (
         <section>
           <h2>Latest works</h2>
-          {work}
+          <div>{work}</div>
           <Link to="/artworks">
             <button>All artworks</button>
           </Link>

@@ -4,8 +4,13 @@ import { connect } from "react-redux";
 
 class NavbarContainer extends Component {
   render() {
-    return <Navbar />;
+    return <Navbar user={this.props.jwt} />;
   }
 }
 
-export default connect(null)(NavbarContainer);
+function mapStateToProps(state) {
+  return {
+    jwt: state.jwt
+  };
+}
+export default connect(mapStateToProps)(NavbarContainer);
