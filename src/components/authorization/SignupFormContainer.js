@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-// import { signup } from "../../store/actions";
+import { signup } from "../../store/actions";
 import SignupForm from "./AuthForm";
 
 class SignupFormContainer extends Component {
@@ -32,4 +32,4 @@ class SignupFormContainer extends Component {
   }
 }
 
-export default connect(null)(SignupFormContainer);
+export default connect(null, { signup })(SignupFormContainer);

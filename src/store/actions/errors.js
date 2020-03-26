@@ -21,6 +21,9 @@ export const errorHandling = async (dispatch, error) => {
     } else if (error.response.body) {
       const validationError = displayError(error.response.body);
       return dispatch(validationError);
+    } else {
+      const basicError = displayError(error.response.text);
+      return dispatch(basicError);
     }
   }
   console.error(error);

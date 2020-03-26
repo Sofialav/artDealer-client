@@ -1,5 +1,5 @@
 import superagent from "superagent";
-import { errorHandling, removeError } from "./errors";
+import { errorHandling, removeError, displayError } from "./errors";
 const baseUrl = "http://localhost:4000";
 
 // loading artworks
@@ -8,9 +8,8 @@ const artworksFetched = artworks => ({
   type: ARTWORKS_FETCHED,
   artworks
 });
-export const loadArtworks = limitValue => async (dispatch, getState) => {
+export const loadArtworks = limitValue => async dispatch => {
   try {
-    if (getState().artworks.total) return;
     const response = await superagent
       .get(`${baseUrl}/artworks`)
       .query({ limit: limitValue });
@@ -52,6 +51,30 @@ export function login(data, history) {
       await dispatch(action);
       await dispatch(removeError());
       return history.push("/myPage");
+    } catch (error) {
+      errorHandling(dispatch, error);
+    }
+  };
+}
+// signup
+const addUser = () => {
+  return {
+    type: "ADD_USER"
+  };
+};
+export function signup(data) {
+  return async function(dispatch) {
+    try {
+      const response = await superagent.post(`${baseUrl}/artists`).send(data);
+      await dispatch(addUser());
+      await dispatch(removeError());
+      if (response.status === 200) {
+        dispatch(
+          displayError(
+            "Your account was successfully created. You may now login"
+          )
+        );
+      }
     } catch (error) {
       errorHandling(dispatch, error);
     }
