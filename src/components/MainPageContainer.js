@@ -15,13 +15,14 @@ class MainPageContainer extends Component {
       <main>
         <MainPageWorks artworks={this.props.artworks} />
         <br />
-        <MainPageArtists />
+        <MainPageArtists artists={this.props.artists} />
       </main>
     );
   }
 }
 const mapStateToProps = state => ({
-  artworks: state.artworks
+  artworks: state.artworks,
+  artists: state.artists
 });
 export default connect(mapStateToProps, { loadArtworks, loadArtists })(
   MainPageContainer

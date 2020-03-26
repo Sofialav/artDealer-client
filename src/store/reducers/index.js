@@ -1,8 +1,10 @@
 import { combineReducers } from "redux";
-import artworks from "./artworks";
 import errors from "./errors";
+import artists from "./artists";
+import artworks from "./artworks";
 
 export default combineReducers({
-  artworks,
-  errors
+  errors,
+  artists,
+  artworks
 });
