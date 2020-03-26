@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 class MainPageArtists extends Component {
   artists = () => {
@@ -18,6 +19,9 @@ class MainPageArtists extends Component {
         <section>
           <h2>Latest artists</h2>
           {artist}
+          <Link to="/artists">
+            <button>All artists</button>
+          </Link>
         </section>
       );
     }

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 class MainPageWorks extends Component {
   works = () => {
@@ -15,6 +16,9 @@ class MainPageWorks extends Component {
         <section>
           <h2>Latest works</h2>
           {work}
+          <Link to="/artworks">
+            <button>All artworks</button>
+          </Link>
         </section>
       );
     }
