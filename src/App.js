@@ -6,6 +6,7 @@ import "./App.css";
 import MainPageContainer from "./components/MainPageContainer";
 import NavbarContainer from "./components/NavbarContainer";
 import AuthFormContainer from "./components/authorization/AuthFormContainer";
+import ArtworksContainer from "./components/ArtworksContainer";
 
 class App extends Component {
   render() {
@@ -15,6 +16,7 @@ class App extends Component {
           <NavbarContainer />
           <Route exact path="/" component={MainPageContainer} />
           <Route exact path="/login" component={AuthFormContainer} />
+          <Route exact path="/artworks" component={ArtworksContainer} />
         </div>
       </Provider>
     );
