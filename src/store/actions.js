@@ -47,3 +47,21 @@ export const loadArtworks = limitValue => async (dispatch, getState) => {
     errorHandling(dispatch, error);
   }
 };
+// loading artists
+export const ARTISTS_FETCHED = "ARTISTS_FETCHED";
+const artistsFetched = artists => ({
+  type: ARTISTS_FETCHED,
+  artists
+});
+export const loadArtists = limitValue => async (dispatch, getState) => {
+  try {
+    if (getState().artists.total) return;
+    const response = await superagent
+      .get(`${baseUrl}/artists`)
+      .query({ limit: limitValue });
+    const action = artistsFetched(response.body);
+    dispatch(action);
+  } catch (error) {
+    errorHandling(dispatch, error);
+  }
+};
