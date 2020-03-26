@@ -6,7 +6,7 @@ class MainPageWorks extends Component {
       const artworks = this.props.artworks.artworks;
       const work = artworks.map(artwork => {
         return (
-          <div>
+          <div key={artwork.id}>
             <img src={artwork.img} alt={artwork.name} />
           </div>
         );
