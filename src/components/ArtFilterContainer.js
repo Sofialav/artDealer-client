@@ -1,19 +1,21 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import GenresFilter from "./GenresFilter";
-import { loadGenres } from "../store/actions";
+import ArtFormsFilter from "./ArtFormsFilter";
+import { loadArtForms } from "../store/actions";
 
 class ArtFilterContainer extends Component {
   componentDidMount() {
-    this.props.loadGenres();
+    this.props.loadArtForms();
   }
   render() {
     return (
       <div>
-        <GenresFilter />
+        <ArtFormsFilter artForms={this.props.artForms} />
       </div>
     );
   }
 }
-
-export default connect(null, { loadGenres })(ArtFilterContainer);
+const mapStateToProps = state => ({
+  artForms: state.artForms
+});
+export default connect(mapStateToProps, { loadArtForms })(ArtFilterContainer);

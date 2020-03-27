@@ -80,17 +80,17 @@ export function signup(data) {
   };
 }
 
-// load art genres
-export const GENRES_FETCHED = "GENRES_FETCHED";
-const genresFetched = genres => ({
-  type: GENRES_FETCHED,
-  genres
+// load art artForms
+export const ARTFORMS_FETCHED = "ARTFORMS_FETCHED";
+const artFormsFetched = artForms => ({
+  type: ARTFORMS_FETCHED,
+  artForms
 });
-export const loadGenres = () => async (dispatch, getState) => {
+export const loadArtForms = () => async (dispatch, getState) => {
   try {
-    if (Object.keys(getState().genres).length) return null;
-    const response = await superagent.get(`${baseUrl}/genres`);
-    const action = genresFetched(response.body);
+    if (Object.keys(getState().artForms).length) return null;
+    const response = await superagent.get(`${baseUrl}/artForms`);
+    const action = artFormsFetched(response.body);
     dispatch(action);
   } catch (error) {
     errorHandling(dispatch, error);

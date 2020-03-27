@@ -1,9 +1,9 @@
-import { GENRES_FETCHED } from "../actions";
+import { ARTFORMS_FETCHED } from "../actions";
 
 export default function(state = {}, action) {
   switch (action.type) {
-    case GENRES_FETCHED:
-      return action.genres;
+    case ARTFORMS_FETCHED:
+      return action.artForms;
 
     default:
       return state;
