@@ -21,7 +21,7 @@ class Artworks extends Component {
   };
 
   render() {
-    if (this.props.artworks === {}) {
+    if (!Object.keys(this.props.artworks).length) {
       return <div>Loading...</div>;
     }
     return <this.displayArtworks />;
