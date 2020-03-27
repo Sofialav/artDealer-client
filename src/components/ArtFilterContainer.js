@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import GenresFilter from "./GenresFilter";
+import { loadGenres } from "../store/actions";
 
 class ArtFilterContainer extends Component {
   componentDidMount() {
-    // this.props.loadGenres();
+    this.props.loadGenres();
   }
   render() {
     return (
@@ -15,4 +16,4 @@ class ArtFilterContainer extends Component {
   }
 }
 
-export default connect(null)(ArtFilterContainer);
+export default connect(null, { loadGenres })(ArtFilterContainer);
