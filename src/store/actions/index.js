@@ -37,7 +37,7 @@ export const loadArtists = limitValue => async dispatch => {
     errorHandling(dispatch, error);
   }
 };
-// load art artForms
+// loading art artForms
 export const ARTFORMS_FETCHED = "ARTFORMS_FETCHED";
 const artFormsFetched = artForms => ({
   type: ARTFORMS_FETCHED,
@@ -51,5 +51,22 @@ export const loadArtForms = () => async (dispatch, getState) => {
     dispatch(action);
   } catch (error) {
     errorHandling(dispatch, error);
+  }
+};
+// loading artist info
+export const ARTIST_FETCHED = "ARTIST_FETCHED";
+const artistFetched = artist => ({
+  type: ARTIST_FETCHED,
+  artist
+});
+export const loadArtist = jwt => async dispatch => {
+  const reqHeader = "Bearer " + jwt;
+  try {
+    const artist = await superagent
+      .get(`${baseUrl}/artists/loggedArtist`)
+      .set("Authorization", reqHeader);
+    dispatch(artistFetched(artist.body));
+  } catch (error) {
+    console.error(error);
   }
 };
