@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Artworks from "./Artworks";
+import { Link } from "react-router-dom";
 
 class UserCabinet extends Component {
   infobox = () => {
@@ -8,7 +9,7 @@ class UserCabinet extends Component {
       return (
         <section>
           <img alt={artist.login} />
-          <div>PLACEHOLDER</div>
+          <div>PLACEHOLDER FOR USER INFO</div>
         </section>
       );
     }
@@ -22,6 +23,14 @@ class UserCabinet extends Component {
       <main>
         <h2>Art Cabinet of {this.props.artist.login}</h2>
         <this.infobox />
+        <section>
+          <Link to={`/artists/${this.props.artist.id}/newArtwork`}>
+            <button>Post new artwork</button>
+          </Link>
+          <Link>
+            <button>Update personal info</button>
+          </Link>
+        </section>
         <section>
           <h4>My artworks:</h4>
           <Artworks artworks={this.props.artist} />
