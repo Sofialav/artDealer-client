@@ -13,12 +13,13 @@ class UserCabinetContainer extends Component {
     if (!this.props.jwt) {
       return <h2>You should be logged in to view this page.</h2>;
     }
-    return <UserCabinet />;
+    return <UserCabinet artist={this.props.artist} />;
   }
 }
 
 const mapStateToProps = state => ({
-  jwt: state.jwt
+  jwt: state.jwt,
+  artist: state.artist
 });
 
 export default connect(mapStateToProps, { loadArtist })(UserCabinetContainer);
