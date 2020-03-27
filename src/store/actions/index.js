@@ -25,9 +25,8 @@ const artistsFetched = artists => ({
   type: ARTISTS_FETCHED,
   artists
 });
-export const loadArtists = limitValue => async (dispatch, getState) => {
+export const loadArtists = limitValue => async dispatch => {
   try {
-    if (getState().artists.total) return null;
     const response = await superagent
       .get(`${baseUrl}/artists`)
       .query({ limit: limitValue });
@@ -80,3 +79,20 @@ export function signup(data) {
     }
   };
 }
+
+// load art artForms
+export const ARTFORMS_FETCHED = "ARTFORMS_FETCHED";
+const artFormsFetched = artForms => ({
+  type: ARTFORMS_FETCHED,
+  artForms
+});
+export const loadArtForms = () => async (dispatch, getState) => {
+  try {
+    if (Object.keys(getState().artForms).length) return null;
+    const response = await superagent.get(`${baseUrl}/artForms`);
+    const action = artFormsFetched(response.body);
+    dispatch(action);
+  } catch (error) {
+    errorHandling(dispatch, error);
+  }
+};
