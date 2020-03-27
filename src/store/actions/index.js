@@ -1,6 +1,7 @@
 import superagent from "superagent";
-import { errorHandling, removeError, displayError } from "./errors";
-const baseUrl = "http://localhost:4000";
+import { errorHandling } from "./errors";
+
+export const baseUrl = "http://localhost:4000";
 
 // loading artworks
 export const ARTWORKS_FETCHED = "ARTWORKS_FETCHED";
@@ -36,50 +37,6 @@ export const loadArtists = limitValue => async dispatch => {
     errorHandling(dispatch, error);
   }
 };
-// login
-export const JWT = "JWT";
-const loginUser = payload => ({
-  type: JWT,
-  payload
-});
-export function login(data, history) {
-  return async function(dispatch) {
-    try {
-      const response = await superagent.post(`${baseUrl}/login`).send(data);
-      const action = loginUser(response.body.jwt);
-      await dispatch(action);
-      await dispatch(removeError());
-      return history.push("/myPage");
-    } catch (error) {
-      errorHandling(dispatch, error);
-    }
-  };
-}
-// signup
-const addUser = () => {
-  return {
-    type: "ADD_USER"
-  };
-};
-export function signup(data) {
-  return async function(dispatch) {
-    try {
-      const response = await superagent.post(`${baseUrl}/artists`).send(data);
-      await dispatch(addUser());
-      await dispatch(removeError());
-      if (response.status === 200) {
-        dispatch(
-          displayError(
-            "Your account was successfully created. You may now login"
-          )
-        );
-      }
-    } catch (error) {
-      errorHandling(dispatch, error);
-    }
-  };
-}
-
 // load art artForms
 export const ARTFORMS_FETCHED = "ARTFORMS_FETCHED";
 const artFormsFetched = artForms => ({
