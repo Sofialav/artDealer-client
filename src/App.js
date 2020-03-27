@@ -8,6 +8,7 @@ import NavbarContainer from "./components/NavbarContainer";
 import AuthFormContainer from "./components/authorization/AuthFormContainer";
 import ArtworksContainer from "./components/ArtworksContainer";
 import UserCabinetContainer from "./components/UserCabinetContainer";
+import AddArtworkContainer from "./components/AddArtworkContainer";
 
 class App extends Component {
   render() {
@@ -19,6 +20,11 @@ class App extends Component {
           <Route exact path="/login" component={AuthFormContainer} />
           <Route exact path="/artworks" component={ArtworksContainer} />
           <Route exact path="/myPage" component={UserCabinetContainer} />
+          <Route
+            exact
+            path="/artists/:artistId/newArtwork"
+            component={AddArtworkContainer}
+          />
         </div>
       </Provider>
     );
