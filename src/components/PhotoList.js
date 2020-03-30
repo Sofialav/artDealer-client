@@ -68,11 +68,14 @@ class PhotoList extends Component {
       .send({
         token: photo.delete_token
       })
-      .then(this.onDeletePhoto.bind(this));
+      .then(this.onDeletePhoto.bind(this, photo));
   }
-  onDeletePhoto() {
-    console.log("NUMBER2", this.props.photos[0].public_id);
-    this.props.onDeleteUploadedPhoto(this.props.photos[0].public_id);
+  onDeletePhoto(photo) {
+    const foundPhoto = this.props.photos.find(
+      item => item.public_id === photo.public_id
+    );
+    console.log("NUMBER2", foundPhoto);
+    this.props.onDeleteUploadedPhoto(foundPhoto.public_id);
   }
   static contextType = CloudinaryContext.contextType;
 }
