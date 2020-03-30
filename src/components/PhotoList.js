@@ -5,6 +5,8 @@ import { photosUploaded } from "../store/actions/cloudinary";
 import PropTypes from "prop-types";
 import Photo from "./Photo";
 import { connect } from "react-redux";
+import { deleteUploadedPhoto } from "../store/actions/cloudinary";
+import request from "superagent";
 
 class PhotoList extends Component {
   render() {
@@ -24,7 +26,17 @@ class PhotoList extends Component {
         <div className="photos">
           {this.props.photos.length === 0 && <p>No photos were added yet.</p>}
           {this.props.photos.map(photo => {
-            return <Photo key={photo.public_id} publicId={photo.public_id} />;
+            return (
+              <div>
+                <Photo key={photo.public_id} publicId={photo.public_id} />
+                <button
+                  className="delete-image"
+                  onClick={this.deletePhoto.bind(this, photo)}
+                >
+                  Delete image
+                </button>
+              </div>
+            );
           })}
         </div>
       </div>
@@ -35,6 +47,7 @@ class PhotoList extends Component {
     const uploadOptions = {
       tags: "artwork",
       folder: "artworks",
+      return_delete_token: true,
       ...this.context
     };
     openUploadWidget(uploadOptions, (error, photos) => {
@@ -45,21 +58,32 @@ class PhotoList extends Component {
       }
     });
   }
-
+  deletePhoto(photo) {
+    request
+      .post(
+        `https://api.cloudinary.com/v1_1/${this.context.cloudName}/delete_by_token`
+      )
+      .set("Content-Type", "application/json")
+      .set("X-Requested-With", "XMLHttpRequest")
+      .send({
+        token: photo.delete_token
+      })
+      .then(this.onDeletePhoto.bind(this));
+  }
+  onDeletePhoto() {
+    console.log("NUMBER2", this.props.photos[0].public_id);
+    this.props.onDeleteUploadedPhoto(this.props.photos[0].public_id);
+  }
   static contextType = CloudinaryContext.contextType;
 }
 
 PhotoList.propTypes = {
   photos: PropTypes.array,
-  onPhotosUploaded: PropTypes.func
+  onPhotosUploaded: PropTypes.func,
+  onDeleteUploadedPhoto: PropTypes.func
 };
 
-// const PhotoListContainer = connect(state => ({ photos: state.photos }), {
-//   onPhotosUploaded: photosUploaded
-// })(PhotoList);
-
-// Object.assign(PhotoListContainer.contextTypes, PhotoList.contextTypes);
-
 export default connect(state => ({ photos: state.photos }), {
-  onPhotosUploaded: photosUploaded
+  onPhotosUploaded: photosUploaded,
+  onDeleteUploadedPhoto: deleteUploadedPhoto
 })(PhotoList);

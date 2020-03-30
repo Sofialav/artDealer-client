@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Image, Transformation } from "cloudinary-react";
 import { url } from "../cloudinary/CloudinaryService";
-// import PhotoThumbnails from "./PhotoThumbnails";
 import { CloudinaryContext } from "cloudinary-react";
 
 class Photo extends Component {
