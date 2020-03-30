@@ -6,7 +6,7 @@ import App from "./App";
 
 ReactDOM.render(
   <BrowserRouter>
-    <App cloudName="d2eath4e" upload_preset="kwu9iom8" />
+    <App />
   </BrowserRouter>,
   document.getElementById("root")
 );
