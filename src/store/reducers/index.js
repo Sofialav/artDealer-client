@@ -5,6 +5,7 @@ import artworks from "./artworks";
 import jwt from "./jwt";
 import artForms from "./artForms";
 import artist from "./artist";
+import photos from "./photos";
 
 export default combineReducers({
   errors,
@@ -12,5 +13,6 @@ export default combineReducers({
   artworks,
   jwt,
   artForms,
-  artist
+  artist,
+  photos
 });

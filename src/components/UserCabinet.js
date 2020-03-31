@@ -24,7 +24,7 @@ class UserCabinet extends Component {
         <h2>Art Cabinet of {this.props.artist.login}</h2>
         <this.infobox />
         <section>
-          <Link to={`/artists/${this.props.artist.id}/newArtwork`}>
+          <Link to={`/myPage/newArtwork`}>
             <button>Post new artwork</button>
           </Link>
           <Link>
