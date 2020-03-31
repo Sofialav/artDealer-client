@@ -1,10 +1,14 @@
 import superagent from "superagent";
-import { errorHandling } from "./errors";
+import { errorHandling, removeError } from "./errors";
 
 export const baseUrl = "http://localhost:4000";
+// actions constants:
+export const ARTWORKS_FETCHED = "ARTWORKS_FETCHED";
+export const ARTISTS_FETCHED = "ARTISTS_FETCHED";
+export const ARTFORMS_FETCHED = "ARTFORMS_FETCHED";
+export const ARTIST_FETCHED = "ARTIST_FETCHED";
 
 // loading artworks
-export const ARTWORKS_FETCHED = "ARTWORKS_FETCHED";
 const artworksFetched = artworks => ({
   type: ARTWORKS_FETCHED,
   artworks
@@ -15,13 +19,13 @@ export const loadArtworks = limitValue => async dispatch => {
       .get(`${baseUrl}/artworks`)
       .query({ limit: limitValue });
     const action = artworksFetched(response.body);
-    dispatch(action);
+    await dispatch(action);
+    dispatch(removeError());
   } catch (error) {
     errorHandling(dispatch, error);
   }
 };
 // loading artists
-export const ARTISTS_FETCHED = "ARTISTS_FETCHED";
 const artistsFetched = artists => ({
   type: ARTISTS_FETCHED,
   artists
@@ -38,7 +42,6 @@ export const loadArtists = limitValue => async dispatch => {
   }
 };
 // loading art artForms
-export const ARTFORMS_FETCHED = "ARTFORMS_FETCHED";
 const artFormsFetched = artForms => ({
   type: ARTFORMS_FETCHED,
   artForms
@@ -54,7 +57,6 @@ export const loadArtForms = () => async (dispatch, getState) => {
   }
 };
 // loading artist info
-export const ARTIST_FETCHED = "ARTIST_FETCHED";
 const artistFetched = artist => ({
   type: ARTIST_FETCHED,
   artist
@@ -68,5 +70,25 @@ export const loadArtist = jwt => async dispatch => {
     dispatch(artistFetched(artist.body));
   } catch (error) {
     console.error(error);
+  }
+};
+// creating artwork
+const newArtwork = () => ({
+  type: "ADD_ARTWORK"
+});
+export const addArtwork = (data, jwt, history) => async dispatch => {
+  try {
+    const reqHeader = "Bearer " + jwt;
+    const artwork = await superagent
+      .post(`${baseUrl}/artworks`)
+      .set("Authorization", reqHeader)
+      .send(data);
+    await dispatch(newArtwork());
+    await dispatch(removeError());
+    if (artwork.status === 200) {
+      return history.push("/myPage");
+    }
+  } catch (error) {
+    errorHandling(dispatch, error);
   }
 };

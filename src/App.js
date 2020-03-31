@@ -22,7 +22,7 @@ class App extends Component {
           <Route exact path="/myPage" component={UserCabinetContainer} />
           <Route
             exact
-            path="/artists/:artistId/newArtwork"
+            path="/myPage/newArtwork"
             component={AddArtworkContainer}
           />
         </div>

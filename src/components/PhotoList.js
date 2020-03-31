@@ -24,7 +24,9 @@ class PhotoList extends Component {
         )}
 
         <div className="photos">
-          {this.props.photos.length === 0 && <p>No photos were added yet.</p>}
+          {this.props.photos.length === 0 && (
+            <p>Please upload photo of your artwork!</p>
+          )}
           {this.props.photos.map(photo => {
             return (
               <div>

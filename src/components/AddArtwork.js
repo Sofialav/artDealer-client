@@ -8,57 +8,65 @@ class AddArtwork extends Component {
       return (
         <div>
           <h3>Post a new artwork</h3>
-          <form>
-            <CloudinaryContext cloudName="d2eath4e" upload_preset="kwu9iom8">
-              <PhotoList />
-            </CloudinaryContext>
+          <CloudinaryContext cloudName="d2eath4e" upload_preset="kwu9iom8">
+            <PhotoList />
+          </CloudinaryContext>
+          <form onSubmit={this.props.onSubmit}>
             <div>
-              <h4>Type of art:</h4>
-              <input
-                type="radio"
+              <label htmlFor="artForms">Type of art:</label>
+              <select
+                id="artForms"
                 name="artFormId"
-                id="Painting"
-                value="1"
-                checked
-              />
-              <label for="Painting">Painting</label>
-              <input type="radio" name="artFormId" id="Drawing" value="2" />
-              <label for="Drawing">Drawing</label>
-              <input type="radio" name="artFormId" id="Sculpture" value="3" />
-              <label for="Sculpture">Sculpture</label>
+                type="number"
+                onChange={this.props.onChange}
+              >
+                <option value="1">Painting</option>
+                <option value="2">Drawing</option>
+                <option value="3">Sculpture</option>
+              </select>
             </div>
-
+            <label htmlFor="artworkTitle">Title*</label>
             <input
+              id="artworkTitle"
               placeholder="Artwork title"
               type="text"
               name="name"
               value={this.props.values.name}
               onChange={this.props.onChange}
+              required
             />
+            <label htmlFor="price">Price in Euros*</label>
             <input
+              id="price"
               type="number"
-              min="1"
+              min="0"
               step="0.5"
               name="price"
               value={this.props.values.price}
               onChange={this.props.onChange}
+              required
             />
+            <label htmlFor="description">Description</label>
             <textarea
-              placeholder="Description"
+              id="description"
+              placeholder="Put any information about your work here"
               type="text"
               name="description"
               value={this.props.values.description}
               onChange={this.props.onChange}
             ></textarea>
+            <label htmlFor="shipCountry">Country of shipping*</label>
+            <input
+              id="shipCountry"
+              placeholder="France"
+              type="text"
+              name="ship_country"
+              value={this.props.values.ship_country}
+              onChange={this.props.onChange}
+              required
+            />
+            <button type="submit">Add artwork</button>
           </form>
-          <input
-            placeholder="Country of shipping"
-            type="text"
-            name="ship_country"
-            value={this.props.values.ship_country}
-            onChange={this.props.onChange}
-          />
-          <button type="submit">Add artwork</button>
         </div>
       );
     }
@@ -66,7 +74,13 @@ class AddArtwork extends Component {
   };
 
   render() {
-    return <this.postArtwork />;
+    const errors = this.props.errors.map(error => <p>{error}</p>);
+    return (
+      <div>
+        <div>{errors}</div>
+        <this.postArtwork />
+      </div>
+    );
   }
 }
 
