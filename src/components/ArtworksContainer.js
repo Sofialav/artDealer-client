@@ -12,17 +12,22 @@ class ArtworksContainer extends Component {
   render() {
     return (
       <div className="container-fluid text-center">
-        <main className="row">
-          <section className="col-sm-2">
-            <ArtFilterContainer />
-          </section>
-          <section className="col-sm-6 offset-sm-1">
-            <h2>Artworks</h2>
-            <div className="row">
-              <Artworks artworks={this.props.artworks} />
-            </div>
-          </section>
-        </main>
+        <div className="card border-0 shadow my-5">
+          <main className="row">
+            <section className="col-sm-2">
+              <ArtFilterContainer />
+            </section>
+            <section className="col-sm-6 offset-sm-1">
+              <h2 className="font-weight-light text-center mt-4 mb-0">
+                Artworks
+              </h2>
+              <hr class="mt-2 mb-5"></hr>
+              <div className="row text-center text-lg-left">
+                <Artworks artworks={this.props.artworks} />
+              </div>
+            </section>
+          </main>
+        </div>
       </div>
     );
   }

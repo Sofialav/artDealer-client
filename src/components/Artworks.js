@@ -7,15 +7,20 @@ class Artworks extends Component {
       const artworks = this.props.artworks.artworks;
       const mapWork = artworks.map(artwork => {
         return (
-          <div key={artwork.id} className="col-sm-3">
-            <h4>{artwork.name}</h4>
-            <Link to={`/artworks/${artwork.id}`}>
+          <div
+            key={artwork.id}
+            className="col-lg-3 col-md-4 col-6 hvr-container"
+          >
+            <Link to={`/artworks/${artwork.id}`} className="d-block mb-4 h-100">
               <img
-                className="img-thumbnail"
+                className="img-thumbnail img-fluid hvr-image"
                 id="aw-thumbnail"
                 src={artwork.img}
                 alt={artwork.name}
               />
+              <div className="hvrbox-layer">
+                <div className="hvrbox-text">{artwork.name}</div>
+              </div>
             </Link>
           </div>
         );

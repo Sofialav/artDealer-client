@@ -9,7 +9,10 @@ class MainPageWorks extends Component {
     }
     return (
       <section className="container-fluid text-center">
-        <h2>Latest Artworks</h2>
+        <h2 className="font-weight-light text-center mt-4 mb-0">
+          Latest Artworks
+        </h2>
+        <hr class="mt-2 mb-5"></hr>
         <div className="row">
           <Artworks artworks={this.props.artworks} />
         </div>
