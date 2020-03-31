@@ -11,12 +11,18 @@ class ArtworksContainer extends Component {
   }
   render() {
     return (
-      <div>
-        <section className="container-fluid text-center">
-          <h2>Artworks</h2>
-          <Artworks artworks={this.props.artworks} />
-        </section>
-        <ArtFilterContainer />
+      <div className="container-fluid text-center">
+        <main className="row">
+          <section className="col-sm-2">
+            <ArtFilterContainer />
+          </section>
+          <section className="col-sm-6 offset-sm-1">
+            <h2>Artworks</h2>
+            <div className="row">
+              <Artworks artworks={this.props.artworks} />
+            </div>
+          </section>
+        </main>
       </div>
     );
   }

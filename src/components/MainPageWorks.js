@@ -8,9 +8,11 @@ class MainPageWorks extends Component {
       return <di>"Loading"</di>;
     }
     return (
-      <section>
+      <section className="container-fluid text-center">
         <h2>Latest Artworks</h2>
-        <Artworks artworks={this.props.artworks} />
+        <div className="row">
+          <Artworks artworks={this.props.artworks} />
+        </div>
         <Link to="/artworks">
           <button>All artworks</button>
         </Link>
