@@ -12,7 +12,7 @@ class ArtworksContainer extends Component {
   render() {
     return (
       <div>
-        <section>
+        <section className="container-fluid text-center">
           <h2>Artworks</h2>
           <Artworks artworks={this.props.artworks} />
         </section>

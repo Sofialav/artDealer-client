@@ -12,7 +12,7 @@ class MainPageContainer extends Component {
   }
   render() {
     return (
-      <main>
+      <main className="container-fluid text-center">
         <MainPageWorks artworks={this.props.artworks} />
         <br />
         <MainPageArtists artists={this.props.artists} />
