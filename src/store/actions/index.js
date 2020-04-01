@@ -8,6 +8,7 @@ export const ARTISTS_FETCHED = "ARTISTS_FETCHED";
 export const ARTFORMS_FETCHED = "ARTFORMS_FETCHED";
 export const ARTIST_FETCHED = "ARTIST_FETCHED";
 export const ARTIST_INFO_FETCHED = "ARTIST_INFO_FETCHED";
+export const ARTWORK_INFO_FETCHED = "ARTWORK_INFO_FETCHED";
 // loading artworks
 const artworksFetched = artworks => ({
   type: ARTWORKS_FETCHED,
@@ -93,14 +94,27 @@ export const addArtwork = (data, jwt, history) => async dispatch => {
   }
 };
 // loading public info of an artist
-const artistInoFetched = artist => ({
+const artistInfoFetched = artist => ({
   type: ARTIST_INFO_FETCHED,
   artist
 });
 export const loadArtistPublic = artistId => async dispatch => {
   try {
     const artist = await superagent.get(`${baseUrl}/artists/${artistId}`);
-    dispatch(artistInoFetched(artist.body));
+    dispatch(artistInfoFetched(artist.body));
+  } catch (error) {
+    errorHandling(dispatch, error);
+  }
+};
+// loading artwork info
+const artworkInfoFetched = artwork => ({
+  type: ARTWORK_INFO_FETCHED,
+  artwork
+});
+export const loadArtwork = artworkId => async dispatch => {
+  try {
+    const artwork = await superagent.get(`${baseUrl}/artworks/${artworkId}`);
+    dispatch(artworkInfoFetched(artwork.body));
   } catch (error) {
     errorHandling(dispatch, error);
   }

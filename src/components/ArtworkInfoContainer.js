@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import ArtworkInfo from "./ArtworkInfo";
+import { loadArtwork } from "../store/actions";
 
 class ArtworkInfoContainer extends Component {
   componentDidMount() {
@@ -13,7 +14,7 @@ class ArtworkInfoContainer extends Component {
     }
     return (
       <div>
-        <ArtworkInfo />
+        <ArtworkInfo artwork={this.props.artwork} />
       </div>
     );
   }
@@ -21,4 +22,4 @@ class ArtworkInfoContainer extends Component {
 const mapStateToProps = state => ({
   artwork: state.artwork
 });
-export default connect(mapStateToProps)(ArtworkInfoContainer);
+export default connect(mapStateToProps, { loadArtwork })(ArtworkInfoContainer);
