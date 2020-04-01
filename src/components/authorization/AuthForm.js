@@ -4,22 +4,39 @@ class AuthForm extends Component {
   inputForm = props => {
     return (
       <form onSubmit={this.props.onSubmit}>
-        <input
-          placeholder="username"
-          type="text"
-          value={this.props.values.login}
-          onChange={this.props.onChange}
-          name="login"
-        ></input>
-        <input
-          placeholder="password"
-          type="password"
-          value={this.props.values.password}
-          onChange={this.props.onChange}
-          name="password"
-        ></input>
+        <div className="form-label-group">
+          <input
+            id="inputLogin"
+            placeholder="username"
+            type="text"
+            value={this.props.values.login}
+            onChange={this.props.onChange}
+            name="login"
+            required
+            className="form-control"
+          />
+          <label for="inputLogin">Username</label>
+        </div>
+        <div className="form-label-group">
+          <input
+            id="inputPassword"
+            placeholder="password"
+            type="password"
+            value={this.props.values.password}
+            onChange={this.props.onChange}
+            name="password"
+            className="form-control"
+            required
+          />
+          <label for="inputPassword">Password</label>
+        </div>
         {props.children}
-        <button type="submit">{this.props.buttonName}</button>
+        <button
+          type="submit"
+          className="btn btn-lg btn-block btn-secondary btn-login text-uppercase font-weight-bold mb-2"
+        >
+          {this.props.buttonName}
+        </button>
       </form>
     );
   };
@@ -27,13 +44,19 @@ class AuthForm extends Component {
     if (this.props.values.hasOwnProperty("email")) {
       return (
         <this.inputForm>
-          <input
-            placeholder="email"
-            type="email"
-            value={this.props.values.email}
-            onChange={this.props.onChange}
-            name="email"
-          ></input>
+          <div className="form-label-group">
+            <input
+              id="inputEmail"
+              placeholder="email"
+              type="email"
+              value={this.props.values.email}
+              onChange={this.props.onChange}
+              name="email"
+              className="form-control"
+              required
+            />
+            <label for="inputEmail">Email address</label>
+          </div>
         </this.inputForm>
       );
     }

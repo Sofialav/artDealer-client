@@ -7,8 +7,12 @@ class MainPageArtists extends Component {
       const artists = this.props.artists.artists;
       const artist = artists.map(artist => {
         return (
-          <div key={artist.id}>
-            <img src={require("../images/user.png")} alt={artist.first_name} />
+          <div key={artist.id} className="col-sm-3">
+            <img
+              src={require("../images/user.png")}
+              alt={artist.first_name}
+              className="img-fluid hvr-image"
+            />
             <div>
               {artist.first_name} {artist.last_name}
             </div>
@@ -16,11 +20,16 @@ class MainPageArtists extends Component {
         );
       });
       return (
-        <section>
-          <h2>Latest artists</h2>
-          <div>{artist}</div>
+        <section className="container-fluid text-center  my-5 mx-5">
+          <h2 className="font-weight-light text-center mt-4 mb-0">
+            Latest Artists
+          </h2>
+          <hr class="mt-2 mb-5"></hr>
+          <div className="row">{artist}</div>
           <Link to="/artists">
-            <button>All artists</button>
+            <button className="btn btn-secondary btn-lg mt-5">
+              All artists
+            </button>
           </Link>
         </section>
       );

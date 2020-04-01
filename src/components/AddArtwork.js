@@ -70,7 +70,11 @@ class AddArtwork extends Component {
         </div>
       );
     }
-    return <h3>Page not found</h3>;
+    return (
+      <h3 className="font-weight-light text-center mt-4 mb-0 font-weight-bold">
+        Page not found
+      </h3>
+    );
   };
 
   render() {

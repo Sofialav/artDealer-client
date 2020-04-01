@@ -11,7 +11,11 @@ class UserCabinetContainer extends Component {
   }
   render() {
     if (!this.props.jwt) {
-      return <h2>You should be logged in to view this page.</h2>;
+      return (
+        <h2 className="font-weight-light text-center mt-4 mb-0 font-weight-bold">
+          You should be logged in to view this page.
+        </h2>
+      );
     }
     return <UserCabinet artist={this.props.artist} />;
   }
