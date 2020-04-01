@@ -8,7 +8,7 @@ class MainPageWorks extends Component {
       return <di>"Loading"</di>;
     }
     return (
-      <section className="container-fluid text-center">
+      <section className="container-fluid text-center  my-5">
         <h2 className="font-weight-light text-center mt-4 mb-0">
           Latest Artworks
         </h2>
@@ -17,7 +17,9 @@ class MainPageWorks extends Component {
           <Artworks artworks={this.props.artworks} />
         </div>
         <Link to="/artworks">
-          <button>All artworks</button>
+          <button className="btn btn-secondary btn-lg mt-5">
+            All artworks
+          </button>
         </Link>
       </section>
     );
