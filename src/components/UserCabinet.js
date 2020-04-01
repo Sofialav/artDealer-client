@@ -1,20 +1,9 @@
 import React, { Component } from "react";
 import Artworks from "./Artworks";
 import { Link } from "react-router-dom";
+import ArtistInfo from "./ArtistInfo";
 
 class UserCabinet extends Component {
-  infobox = () => {
-    if (this.props.artist) {
-      const artist = this.props.artist;
-      return (
-        <section>
-          <img alt={artist.login} />
-          <div>PLACEHOLDER FOR USER INFO</div>
-        </section>
-      );
-    }
-  };
-
   render() {
     if (!Object.keys(this.props.artist).length) {
       return <div>Loading...</div>;
@@ -26,7 +15,7 @@ class UserCabinet extends Component {
             Art Cabinet of {this.props.artist.login}
           </h2>
           <hr class="mt-2 mb-5"></hr>
-          <this.infobox />
+          <ArtistInfo artist={this.props.artist} />
           <section>
             <Link to={`/myPage/newArtwork`}>
               <button className="btn btn-secondary btn-lg mt-5 mr-2">

@@ -1,13 +1,13 @@
 import React, { Component } from "react";
-import Artworks from "./Artworks";
+import Artists from "./Artists";
 import { connect } from "react-redux";
-import { loadArtworks } from "../store/actions";
-import ArtFilterContainer from "./ArtFilterContainer";
+import { loadArtists } from "../store/actions";
+// import ArtFilterContainer from "./ArtFilterContainer";
 
-class ArtworksContainer extends Component {
+class ArtistsContainer extends Component {
   componentDidMount() {
-    const limit = 8;
-    this.props.loadArtworks(limit);
+    const limit = 4;
+    this.props.loadArtists(limit);
   }
   render() {
     return (
@@ -15,15 +15,15 @@ class ArtworksContainer extends Component {
         <div className="card border-0 shadow my-5 mx-5">
           <main className="row">
             <section className="col-sm-2">
-              <ArtFilterContainer />
+              {/* <ArtFilterContainer /> */}
             </section>
             <section className="col-sm-6 offset-sm-1">
               <h2 className="font-weight-light text-center mt-4 mb-0 ">
-                All Artworks
+                All Artists
               </h2>
               <hr class="mt-2 mb-5"></hr>
               <div className="row text-center text-lg-left">
-                <Artworks artworks={this.props.artworks} />
+                <Artists artists={this.props.artists} />
               </div>
             </section>
           </main>
@@ -33,6 +33,6 @@ class ArtworksContainer extends Component {
   }
 }
 const mapStateToProps = state => ({
-  artworks: state.artworks
+  artists: state.artists
 });
-export default connect(mapStateToProps, { loadArtworks })(ArtworksContainer);
+export default connect(mapStateToProps, { loadArtists })(ArtistsContainer);
