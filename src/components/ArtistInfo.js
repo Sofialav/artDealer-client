@@ -38,9 +38,6 @@ class ArtistInfo extends Component {
     return null;
   };
   render() {
-    if (!Object.keys(this.props.artist).length) {
-      return <div>Loading...</div>;
-    }
     return <this.displayArtist />;
   }
 }

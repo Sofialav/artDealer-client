@@ -7,6 +7,7 @@ import artForms from "./artForms";
 import artist from "./artist";
 import photos from "./photos";
 import artistPublic from "./artistPublic";
+import artwork from "./artwork";
 
 export default combineReducers({
   errors,
@@ -16,5 +17,6 @@ export default combineReducers({
   artForms,
   artist,
   photos,
-  artistPublic
+  artistPublic,
+  artwork
 });

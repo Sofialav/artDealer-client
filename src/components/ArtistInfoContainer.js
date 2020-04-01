@@ -10,6 +10,9 @@ class ArtistInfoContainer extends Component {
     this.props.loadArtistPublic(artistId);
   }
   render() {
+    if (!Object.keys(this.props.artistPublic).length) {
+      return <div>Loading...</div>;
+    }
     return (
       <div className="container-fluid text-center">
         <div className="card border-0 shadow my-5 mx-5">
