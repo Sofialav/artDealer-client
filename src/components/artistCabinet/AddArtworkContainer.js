@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import AddArtwork from "./AddArtwork";
-import { addArtwork } from "../store/actions";
+import { addArtwork } from "../../store/actions";
 
 class AddArtworkContainer extends Component {
   state = {

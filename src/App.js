@@ -7,8 +7,8 @@ import MainPageContainer from "./components/MainPageContainer";
 import NavbarContainer from "./components/NavbarContainer";
 import AuthFormContainer from "./components/authorization/AuthFormContainer";
 import ArtworksContainer from "./components/ArtworksContainer";
-import UserCabinetContainer from "./components/UserCabinetContainer";
-import AddArtworkContainer from "./components/AddArtworkContainer";
+import UserCabinetContainer from "./components/artistCabinet/UserCabinetContainer";
+import AddArtworkContainer from "./components/artistCabinet/AddArtworkContainer";
 import ArtistsContainer from "./components/ArtistsContainer";
 import ArtistInfoContainer from "./components/ArtistInfoContainer";
 

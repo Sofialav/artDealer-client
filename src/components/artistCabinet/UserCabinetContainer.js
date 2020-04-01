@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import UserCabinet from "./UserCabinet";
-import { loadArtist } from "../store/actions";
+import { loadArtist } from "../../store/actions";
 
 class UserCabinetContainer extends Component {
   componentDidMount() {
