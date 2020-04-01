@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import ArtistInfo from "./ArtistInfo";
 import { loadArtistPublic } from "../store/actions";
+import Artworks from "./Artworks";
 
 class ArtistInfoContainer extends Component {
   componentDidMount() {
@@ -10,8 +11,19 @@ class ArtistInfoContainer extends Component {
   }
   render() {
     return (
-      <div>
-        <ArtistInfo />
+      <div className="container-fluid text-center">
+        <div className="card border-0 shadow my-5 mx-5">
+          <ArtistInfo artist={this.props.artistPublic} />
+          <section>
+            <h2 className="font-weight-light text-center mt-4 mb-0 ">
+              Artist works
+            </h2>
+            <hr class="mt-2 mb-5"></hr>
+            <div className="row text-center text-lg-left my-5 mx-5">
+              <Artworks artworks={this.props.artistPublic} />
+            </div>
+          </section>
+        </div>
       </div>
     );
   }
