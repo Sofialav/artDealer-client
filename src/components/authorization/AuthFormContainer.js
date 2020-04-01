@@ -8,7 +8,7 @@ class AuthFormContainer extends Component {
     const errors = this.props.errors.map(error => <p>{error}</p>);
     return (
       <div className="container-fluid text-center">
-        <div className="card border-0 shadow my-5">
+        <div className="card border-0 shadow my-5 mx-5">
           <LoginFormContainer history={this.props.history} />
           <div>{errors}</div>
 

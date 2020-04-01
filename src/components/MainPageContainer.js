@@ -13,9 +13,8 @@ class MainPageContainer extends Component {
   render() {
     return (
       <main className="container-fluid text-center">
-        <div className="card border-0 shadow my-5">
+        <div className="card border-0 shadow my-5 mx-5">
           <MainPageWorks artworks={this.props.artworks} />
-          <br />
           <MainPageArtists artists={this.props.artists} />
         </div>
       </main>

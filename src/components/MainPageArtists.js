@@ -20,9 +20,9 @@ class MainPageArtists extends Component {
         );
       });
       return (
-        <section className="container-fluid text-center  my-5">
+        <section className="container-fluid text-center  my-5 mx-5">
           <h2 className="font-weight-light text-center mt-4 mb-0">
-            Latest artists
+            Latest Artists
           </h2>
           <hr class="mt-2 mb-5"></hr>
           <div className="row">{artist}</div>

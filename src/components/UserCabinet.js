@@ -20,21 +20,35 @@ class UserCabinet extends Component {
       return <div>Loading...</div>;
     }
     return (
-      <main>
-        <h2>Art Cabinet of {this.props.artist.login}</h2>
-        <this.infobox />
-        <section>
-          <Link to={`/myPage/newArtwork`}>
-            <button>Post new artwork</button>
-          </Link>
-          <Link>
-            <button>Update personal info</button>
-          </Link>
-        </section>
-        <section>
-          <h4>My artworks:</h4>
-          <Artworks artworks={this.props.artist} />
-        </section>
+      <main className="container-fluid text-center">
+        <div className="card border-0 shadow my-5 mx-5">
+          <h2 className="font-weight-light text-center mt-4 mb-0 font-weight-bold">
+            Art Cabinet of {this.props.artist.login}
+          </h2>
+          <hr class="mt-2 mb-5"></hr>
+          <this.infobox />
+          <section>
+            <Link to={`/myPage/newArtwork`}>
+              <button className="btn btn-secondary btn-lg mt-5 mr-2">
+                Post new artwork
+              </button>
+            </Link>
+            <Link>
+              <button className="btn btn-secondary btn-lg mt-5 ml-2">
+                Update personal info
+              </button>
+            </Link>
+          </section>
+          <section className="container-fluid text-center  my-5 mx-5">
+            <h2 className="font-weight-light text-center mt-4 mb-0">
+              My Artworks
+            </h2>
+            <hr class="mt-2 mb-5"></hr>
+            <div className="row">
+              <Artworks artworks={this.props.artist} />
+            </div>
+          </section>
+        </div>
       </main>
     );
   }

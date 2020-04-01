@@ -8,7 +8,7 @@ class MainPageWorks extends Component {
       return <di>"Loading"</di>;
     }
     return (
-      <section className="container-fluid text-center  my-5">
+      <section className="container-fluid text-center  my-5 mx-5">
         <h2 className="font-weight-light text-center mt-4 mb-0">
           Latest Artworks
         </h2>
