@@ -10,6 +10,7 @@ import ArtworksContainer from "./components/ArtworksContainer";
 import UserCabinetContainer from "./components/UserCabinetContainer";
 import AddArtworkContainer from "./components/AddArtworkContainer";
 import ArtistsContainer from "./components/ArtistsContainer";
+import ArtistInfoContainer from "./components/ArtistInfoContainer";
 
 class App extends Component {
   render() {
@@ -21,6 +22,11 @@ class App extends Component {
           <Route exact path="/login" component={AuthFormContainer} />
           <Route exact path="/artworks" component={ArtworksContainer} />
           <Route exact path="/artists" component={ArtistsContainer} />
+          <Route
+            exact
+            path="/artists/:artistId"
+            component={ArtistInfoContainer}
+          />
           <Route exact path="/myPage" component={UserCabinetContainer} />
           <Route
             exact
