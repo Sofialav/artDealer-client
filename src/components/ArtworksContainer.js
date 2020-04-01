@@ -6,7 +6,7 @@ import ArtFilterContainer from "./ArtFilterContainer";
 
 class ArtworksContainer extends Component {
   componentDidMount() {
-    const limit = 9;
+    const limit = 8;
     this.props.loadArtworks(limit);
   }
   render() {
