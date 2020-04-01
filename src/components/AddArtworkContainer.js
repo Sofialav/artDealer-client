@@ -13,15 +13,17 @@ class AddArtworkContainer extends Component {
   };
   render() {
     return (
-      <div>
-        <AddArtwork
-          values={this.state}
-          onChange={this.onChange}
-          onSubmit={this.onSubmit}
-          jwt={this.props.jwt}
-          errors={this.props.errors}
-        />
-        <h4>{this.errorMsg}</h4>
+      <div className="container-fluid text-center">
+        <div className="card border-0 shadow my-5 mx-5">
+          <AddArtwork
+            values={this.state}
+            onChange={this.onChange}
+            onSubmit={this.onSubmit}
+            jwt={this.props.jwt}
+            errors={this.props.errors}
+          />
+          <h4>{this.errorMsg}</h4>
+        </div>
       </div>
     );
   }

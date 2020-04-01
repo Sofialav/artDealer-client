@@ -15,7 +15,7 @@ class AuthForm extends Component {
             required
             className="form-control"
           />
-          <label for="inputLogin">Username</label>
+          <label htmlFor="inputLogin">Username</label>
         </div>
         <div className="form-label-group">
           <input
@@ -28,12 +28,12 @@ class AuthForm extends Component {
             className="form-control"
             required
           />
-          <label for="inputPassword">Password</label>
+          <label htmlFor="inputPassword">Password</label>
         </div>
         {props.children}
         <button
           type="submit"
-          className="btn btn-lg btn-block btn-secondary btn-login text-uppercase font-weight-bold mb-2"
+          className="btn btn-lg btn-block btn-secondary btn-login text-uppercase font-weight-bold my-2 "
         >
           {this.props.buttonName}
         </button>
@@ -55,7 +55,7 @@ class AuthForm extends Component {
               className="form-control"
               required
             />
-            <label for="inputEmail">Email address</label>
+            <label htmlFor="inputEmail">Email address</label>
           </div>
         </this.inputForm>
       );

@@ -65,7 +65,7 @@ export const loadArtist = jwt => async dispatch => {
   const reqHeader = "Bearer " + jwt;
   try {
     const artist = await superagent
-      .get(`${baseUrl}/artists/loggedArtist`)
+      .get(`${baseUrl}/secret/loggedArtist`)
       .set("Authorization", reqHeader);
     dispatch(artistFetched(artist.body));
   } catch (error) {

@@ -15,24 +15,25 @@ class PhotoList extends Component {
         {this.props.photos.length === 0 && (
           <div className="actions">
             <button
-              className="upload_link"
+              className="upload_link btn btn-lg btn-secondary btn-login text-uppercase font-weight-bold my-2"
               onClick={this.uploadImageWithCloudinary.bind(this)}
             >
               Upload photo of your artwork
             </button>
           </div>
         )}
-
         <div className="photos">
           {this.props.photos.length === 0 && (
-            <p>Please upload photo of your artwork!</p>
+            <p className="font-weight-light text-center mb-4">
+              Please upload photo of your artwork!
+            </p>
           )}
           {this.props.photos.map(photo => {
             return (
               <div>
                 <Photo key={photo.public_id} publicId={photo.public_id} />
                 <button
-                  className="delete-image"
+                  className="delete-image btn btn-lg btn-secondary btn-login text-uppercase font-weight-bold my-5"
                   onClick={this.deletePhoto.bind(this, photo)}
                 >
                   Delete image

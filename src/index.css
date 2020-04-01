@@ -1,17 +1,9 @@
 body {
   background: url("https://images.pexels.com/photos/2131293/pexels-photo-2131293.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260")
     no-repeat center center fixed;
+  font-family: Montserrat, sans-serif !important;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
   -o-background-size: cover;
 }
-
-/* code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-} */
-/* 
-section {
-  border: 2px solid black;
-} */
