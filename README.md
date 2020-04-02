@@ -50,6 +50,17 @@ Art Dealer is an app made for artists to sell fine arts online, and for art-love
 
 ## Git workflow
 
+**In this project I try to use:**
+
+- Good commit messages
+- Well named branches
+- Pull requests with summaries
+
+**You can check some samples below**
+
+- [**feat/myPage**](https://github.com/Sofialav/artDealer-client/pull/5)
+- [**development**](https://github.com/Sofialav/artDealer-client/pull/10)
+
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
