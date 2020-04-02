@@ -23,15 +23,21 @@ Art Dealer is an app made for artists to sell fine arts online, and for art-love
 
 ## Technologies used
 
-## Features
+- [**React**](https://github.com/Sofialav/artDealer-client/blob/master/src/App.js)
+- [**Redux**](https://github.com/Sofialav/artDealer-client/tree/master/src/store)
+- [**React Bootstrap**](https://github.com/Sofialav/artDealer-client/blob/master/src/components/ArtworkInfo.js) - styling
+- [**Cloudinary-react**](https://github.com/Sofialav/artDealer-client/blob/master/src/components/artistCabinet/PhotoList.js) - image upload
+- [**Superagent**](**Superagent**) - HTTP requests
+- [**Backend**](https://github.com/Sofialav/artDealer-server#technologies-used)
 
-### For Users
+## Features
 
 1. 👨‍🎨**For Artists**
 
 - Create an account
 - Fill in your profile info
 - Create a posting (upload photo of your artwork and fill in the info)
+- +All customers features
 
 2. 👱‍♀️**For customers**
 
