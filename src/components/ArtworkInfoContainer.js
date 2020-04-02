@@ -13,8 +13,10 @@ class ArtworkInfoContainer extends Component {
       return <div>Loading...</div>;
     }
     return (
-      <div>
-        <ArtworkInfo artwork={this.props.artwork} />
+      <div className="container-fluid text-center">
+        <div className="card border-0 shadow my-5 mx-5">
+          <ArtworkInfo artwork={this.props.artwork} />
+        </div>
       </div>
     );
   }
