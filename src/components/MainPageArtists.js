@@ -12,7 +12,7 @@ class MainPageArtists extends Component {
         <h2 className="font-weight-light text-center mt-4 mb-0">
           Latest Artists
         </h2>
-        <hr class="mt-2 mb-5"></hr>
+        <hr className="mt-2 mb-5"></hr>
         <div className="row">
           <Artists artists={this.props.artists} />
         </div>

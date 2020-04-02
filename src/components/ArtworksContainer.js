@@ -21,7 +21,7 @@ class ArtworksContainer extends Component {
               <h2 className="font-weight-light text-center mt-4 mb-0 ">
                 All Artworks
               </h2>
-              <hr class="mt-2 mb-5"></hr>
+              <hr className="mt-2 mb-5"></hr>
               <div className="row text-center text-lg-left">
                 <Artworks artworks={this.props.artworks} />
               </div>

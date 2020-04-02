@@ -29,7 +29,7 @@ class ArtFormsFilter extends Component {
         <h3 className="font-weight-light text-left mt-4 ml-5 mb-0 ">
           Art type
         </h3>
-        <hr class="mt-2 mb-5"></hr>
+        <hr className="mt-2 mb-5"></hr>
         <div>
           <this.mapArtForms />
         </div>
