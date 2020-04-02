@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import { CloudinaryContext } from "cloudinary-react";
-import { openUploadWidget } from "../cloudinary/CloudinaryService";
-import { photosUploaded } from "../store/actions/cloudinary";
-import PropTypes from "prop-types";
-import Photo from "./Photo";
-import { connect } from "react-redux";
-import { deleteUploadedPhoto } from "../store/actions/cloudinary";
 import request from "superagent";
+import PropTypes from "prop-types";
+import { CloudinaryContext } from "cloudinary-react";
+import { connect } from "react-redux";
+import { openUploadWidget } from "../../cloudinary/CloudinaryService";
+import { photosUploaded } from "../../store/actions/cloudinary";
+import Photo from "./Photo";
+import { deleteUploadedPhoto } from "../../store/actions/cloudinary";
 
 class PhotoList extends Component {
   render() {

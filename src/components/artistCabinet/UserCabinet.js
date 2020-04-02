@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import Artworks from "./Artworks";
+import Artworks from "../Artworks";
 import { Link } from "react-router-dom";
-import ArtistInfo from "./ArtistInfo";
+import ArtistInfo from "../ArtistInfo";
 
 class UserCabinet extends Component {
   render() {
