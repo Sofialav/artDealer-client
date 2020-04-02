@@ -4,8 +4,8 @@
 
 ### ☑️ Version 1.0
 
-⭐️[**Check out the deployed version on Netlify**](https://art-dealer.netlify.com/) <br/>
-⭐️[**The backend source code for this app is here**](https://github.com/Sofialav/artDealer-server)
+⭐️ [**Check out the deployed version on Netlify**](https://art-dealer.netlify.com/) <br/>
+⭐️ [**The backend source code for this app is here**](https://github.com/Sofialav/artDealer-server)
 
 ## Summary
 
@@ -48,6 +48,13 @@ Art Dealer is an app made for artists to sell fine arts online, and for art-love
 
 ## User stories and Wireframe
 
+### User stories for this project
+
+### Wireframe
+
+![wireframe](https://media.giphy.com/media/QaM8PeVVYUjHHfMegk/giphy.gif) <br/>
+⭐️ [**You can see the full version on Mockflow**](https://wireframepro.mockflow.com/view/M862870188ba38771c6d720a404c4fe631584972912988#/page/D5fd6780388cb4a5ed18e382e306819af)
+
 ## Git workflow
 
 **In this project I try to use:**
@@ -56,10 +63,10 @@ Art Dealer is an app made for artists to sell fine arts online, and for art-love
 - Well named branches
 - Pull requests with summaries
 
-**You can check some samples below**
+**You can check the samples below**
 
-- [**feat/myPage**](https://github.com/Sofialav/artDealer-client/pull/5)
-- [**development**](https://github.com/Sofialav/artDealer-client/pull/10)
+⭐️ [**feat/myPage**](https://github.com/Sofialav/artDealer-client/pull/5)
+⭐️ [**development**](https://github.com/Sofialav/artDealer-client/pull/10)
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
