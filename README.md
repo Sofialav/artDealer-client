@@ -18,9 +18,11 @@ Art Dealer is an app made for artists to sell fine arts online, and for art-love
 - [**Features**](#Features)
 - [**User stories and Wireframe**](#User-stories-and-Wireframe)
 - [**Git workflow**](#Git-workflow)
-- [Create React App docks](#create-react-app)
+- [**Create React App docks**](#create-react-app)
 
 ## App Demo
+
+Demo will be here later
 
 ## Technologies used
 
@@ -28,7 +30,7 @@ Art Dealer is an app made for artists to sell fine arts online, and for art-love
 - [**Redux**](https://github.com/Sofialav/artDealer-client/tree/master/src/store)
 - [**React Bootstrap**](https://github.com/Sofialav/artDealer-client/blob/master/src/components/ArtworkInfo.js) - styling
 - [**Cloudinary-react**](https://github.com/Sofialav/artDealer-client/blob/master/src/components/artistCabinet/PhotoList.js) - image upload
-- [**Superagent**](**Superagent**) - HTTP requests
+- [**Superagent**](https://github.com/Sofialav/artDealer-client/blob/master/src/store/actions/index.js) - HTTP requests
 - [**Backend**](https://github.com/Sofialav/artDealer-server#technologies-used)
 
 ## Features
@@ -50,6 +52,16 @@ Art Dealer is an app made for artists to sell fine arts online, and for art-love
 ## User stories and Wireframe
 
 ### User stories for this project
+
+- **As an artist who creates fine arts**  
+  I want to sell my art to customers  
+  So I can make income from my paintings
+- **As an artist who creates fine arts**  
+  I want to create my profile with pictures of my works for sale and information about me  
+  So customers could pick something from my works, and artists and art dealers could get in touch with me
+- **As a customer who wants to buy some art**  
+  I want to be able to buy paintings  
+  So I could get some good arty stuff
 
 ### Wireframe
 
@@ -73,4 +85,4 @@ Art Dealer is an app made for artists to sell fine arts online, and for art-love
 
 This project was bootstrapped using the create-react-app
 
-[The standard create-react-app docs can be found in here](https://github.com/Sofialav/artDealer-client/blob/master/create-react-app-docks.md)
+⭐️ [**The standard create-react-app docs can be found in here**](https://github.com/Sofialav/artDealer-client/blob/master/create-react-app-docks.md)
