@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import { CountryDropdown, RegionDropdown } from "react-country-region-selector";
 
 class BillingInfo extends Component {
@@ -13,7 +12,7 @@ class BillingInfo extends Component {
         <form>
           <section className="form-row">
             <div className="col form-group">
-              <label htmlFor="name">First name *</label>
+              <label htmlFor="name">First name</label>
               <input
                 className="form-control"
                 id="name"
@@ -25,7 +24,7 @@ class BillingInfo extends Component {
               />
             </div>
             <div className="col form-group">
-              <label htmlFor="surname">Last name *</label>
+              <label htmlFor="surname">Last name</label>
               <input
                 className="form-control"
                 id="surname"
@@ -39,17 +38,18 @@ class BillingInfo extends Component {
           </section>
           <section className="form-row">
             <div className="col form-group">
-              <label htmlFor="country">Country *</label>
+              <label htmlFor="country">Country</label>
               <CountryDropdown
                 className="form-control"
                 id="country"
                 name="country"
                 value={this.props.values.country}
                 onChange={val => this.props.selectCountry(val)}
+                required
               />
             </div>
             <div className="col form-group">
-              <label htmlFor="region">Region *</label>
+              <label htmlFor="region">Region</label>
               <RegionDropdown
                 className="form-control"
                 id="region"
@@ -57,12 +57,13 @@ class BillingInfo extends Component {
                 country={this.props.values.country}
                 value={this.props.values.region}
                 onChange={val => this.props.selectRegion(val)}
+                required
               />
             </div>
           </section>
           <section className="form-row">
             <div className="col form-group">
-              <label htmlFor="address1">Street address *</label>
+              <label htmlFor="address1">Street address</label>
               <input
                 className="form-control"
                 id="address1"
@@ -76,7 +77,7 @@ class BillingInfo extends Component {
           </section>
           <section className="form-row">
             <div className="col form-group">
-              <label htmlFor="city">City *</label>
+              <label htmlFor="city">City</label>
               <input
                 className="form-control"
                 id="city"
@@ -88,7 +89,7 @@ class BillingInfo extends Component {
               />
             </div>
             <div className="col form-group">
-              <label htmlFor="postcode">Postcode *</label>
+              <label htmlFor="postcode">Postcode</label>
               <input
                 className="form-control"
                 id="postcode"
@@ -102,10 +103,10 @@ class BillingInfo extends Component {
           </section>
           <section className="form-row">
             <div className="col form-group">
-              <label htmlFor="phone">Phone *</label>
+              <label htmlFor="phone">Phone number</label>
               <input
                 className="form-control"
-                id="phone"
+                id="tel"
                 type="text"
                 name="phone"
                 value={this.props.values.phone}
@@ -114,11 +115,11 @@ class BillingInfo extends Component {
               />
             </div>
             <div className="col form-group">
-              <label htmlFor="email">Email *</label>
+              <label htmlFor="email">Email</label>
               <input
                 className="form-control"
                 id="email"
-                type="text"
+                type="email"
                 name="email"
                 value={this.props.values.email}
                 onChange={this.props.onChange}
@@ -128,22 +129,25 @@ class BillingInfo extends Component {
           </section>
           <section className="form-row">
             <div className="col form-group">
-              <div>Total: </div>
+              <h4 className="font-weight-bold text-center my-2">
+                Shipping: € 0
+              </h4>
             </div>
           </section>
-        </form>
-      </section>
-    );
-    return (
-      <div className="col-sm-5 text-center">
-        {personalData}
-        <Link to="/checkout">
+          <section className="form-row">
+            <div className="col form-group">
+              <h3 className="font-weight-bold text-center">
+                Total: € {this.props.values.total}
+              </h3>
+            </div>
+          </section>
           <button type="submit" className="btn btn-secondary btn-lg mb-5">
             Checkout
           </button>
-        </Link>
-      </div>
+        </form>
+      </section>
     );
+    return <div className="col-sm-5 text-center">{personalData}</div>;
   };
   render() {
     return <this.displayBilling />;

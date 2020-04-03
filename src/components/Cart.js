@@ -6,7 +6,7 @@ class Cart extends Component {
     const totalPrice = cart.reduce((acc, prod) => prod.price + acc, 0);
     const result = cart.map(artwork => {
       return (
-        <section className="row text-center">
+        <section className="row text-center" key={artwork.id}>
           <div className="col-sm-2 text-center">
             <img
               className="img-thumbnail img-fluid mb-5 mx-5"

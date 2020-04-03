@@ -13,19 +13,27 @@ class CartContainer extends Component {
     city: "",
     postcode: "",
     phone: "",
-    email: ""
+    email: "",
+    total: 0
   };
+  componentDidMount() {
+    const totalPrice = this.props.cart.reduce(
+      (acc, prod) => prod.price + acc,
+      0
+    );
+    this.setState({ ...this.state, total: totalPrice });
+  }
 
   render() {
     return (
       <div className="container-fluid text-center">
         <div className="card border-0 shadow my-5 mx-5 ">
-          <h2 className="font-weight-light text-center mt-4 mb-0">
+          <h2 className="font-weight-bold text-center mt-4 mb-0">
             Shopping Cart
           </h2>
           <hr className="mt-2 mb-5"></hr>
           <main className="row text-center justify-content-md-center">
-            <Cart cart={this.props.cart} />
+            <Cart cart={this.props.cart} showTotal={this.showTotal} />
             <BillingInfo
               values={this.state}
               onChange={this.onChange}
@@ -37,7 +45,10 @@ class CartContainer extends Component {
       </div>
     );
   }
-
+  showTotal = price => {
+    console.log("RUNNING", price);
+    this.setState({ ...this.state, total: price });
+  };
   selectCountry = val => {
     this.setState({ ...this.state, country: val });
   };
