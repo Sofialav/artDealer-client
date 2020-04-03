@@ -128,6 +128,7 @@ const artworkToCart = artwork => ({
   payload: {
     id: artwork.id,
     title: artwork.name,
+    img: artwork.img,
     artist: {
       artistId: artwork.artistId,
       name: artwork.artist.first_name,
