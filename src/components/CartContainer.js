@@ -4,6 +4,18 @@ import Cart from "./Cart";
 import BillingInfo from "./BillingInfo";
 
 class CartContainer extends Component {
+  state = {
+    first_name: "",
+    last_name: "",
+    country: "",
+    address1: "",
+    address2: "",
+    city: "",
+    postcode: "",
+    phone: "",
+    email: ""
+  };
+
   render() {
     return (
       <div className="container-fluid text-center">
@@ -14,7 +26,7 @@ class CartContainer extends Component {
           <hr className="mt-2 mb-5"></hr>
           <main className="row text-center">
             <Cart cart={this.props.cart} />
-            <BillingInfo />
+            <BillingInfo values={this.state} />
           </main>
         </div>
       </div>
