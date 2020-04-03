@@ -31,7 +31,15 @@ class ArtworkInfo extends Component {
                 </h4>
               </Link>
             )}
-            <div className="mb-5 mx-5">€ {artwork.price}</div>
+            <div className="mb-2 mx-5">€ {artwork.price}</div>
+            <div className="mb-2 mx-5">{this.props.isInCart()}</div>
+            <button
+              type="submit"
+              className="btn btn-secondary btn-lg mb-5"
+              onClick={() => this.props.toCart(artwork)}
+            >
+              Add to cart
+            </button>
             {props.children}
             <div className="mb-5 mx-5">{artwork.description}</div>
           </section>

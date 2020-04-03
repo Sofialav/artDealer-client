@@ -12,6 +12,7 @@ import AddArtworkContainer from "./components/artistCabinet/AddArtworkContainer"
 import ArtistsContainer from "./components/ArtistsContainer";
 import ArtistInfoContainer from "./components/ArtistInfoContainer";
 import ArtworkInfoContainer from "./components/ArtworkInfoContainer";
+import CartContainer from "./components/CartContainer";
 
 class App extends Component {
   render() {
@@ -23,6 +24,7 @@ class App extends Component {
           <Route exact path="/login" component={AuthFormContainer} />
           <Route exact path="/artworks" component={ArtworksContainer} />
           <Route exact path="/artists" component={ArtistsContainer} />
+          <Route exact path="/cart" component={CartContainer} />
           <Route exact path="/myPage" component={UserCabinetContainer} />
           <Route
             exact

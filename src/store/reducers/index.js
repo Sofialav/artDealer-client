@@ -8,6 +8,7 @@ import artist from "./artist";
 import photos from "./photos";
 import artistPublic from "./artistPublic";
 import artwork from "./artwork";
+import cart from "./cart";
 
 export default combineReducers({
   errors,
@@ -18,5 +19,6 @@ export default combineReducers({
   artist,
   photos,
   artistPublic,
-  artwork
+  artwork,
+  cart
 });
