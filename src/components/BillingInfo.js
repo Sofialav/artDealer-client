@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { CountryDropdown, RegionDropdown } from "react-country-region-selector";
 
 class BillingInfo extends Component {
   displayBilling = () => {
@@ -37,7 +38,27 @@ class BillingInfo extends Component {
             </div>
           </section>
           <section className="form-row">
-            <div className="col form-group"></div>
+            <div className="col form-group">
+              <label htmlFor="country">Country *</label>
+              <CountryDropdown
+                className="form-control"
+                id="country"
+                name="country"
+                value={this.props.values.country}
+                onChange={val => this.props.selectCountry(val)}
+              />
+            </div>
+            <div className="col form-group">
+              <label htmlFor="region">Region *</label>
+              <RegionDropdown
+                className="form-control"
+                id="region"
+                name="region"
+                country={this.props.values.country}
+                value={this.props.values.region}
+                onChange={val => this.props.selectRegion(val)}
+              />
+            </div>
           </section>
         </form>
       </section>

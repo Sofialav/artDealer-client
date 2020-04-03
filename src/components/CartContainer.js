@@ -8,6 +8,7 @@ class CartContainer extends Component {
     first_name: "",
     last_name: "",
     country: "",
+    region: "",
     address1: "",
     address2: "",
     city: "",
@@ -26,12 +27,29 @@ class CartContainer extends Component {
           <hr className="mt-2 mb-5"></hr>
           <main className="row text-center">
             <Cart cart={this.props.cart} />
-            <BillingInfo values={this.state} />
+            <BillingInfo
+              values={this.state}
+              onChange={this.onChange}
+              selectCountry={this.selectCountry}
+              selectRegion={this.selectRegion}
+            />
           </main>
         </div>
       </div>
     );
   }
+
+  selectCountry = val => {
+    this.setState({ ...this.state, country: val });
+  };
+  selectRegion = val => {
+    this.setState({ ...this.state, region: val });
+  };
+  onChange = event => {
+    this.setState({
+      [event.target.name]: event.target.value
+    });
+  };
 }
 const mapStateToProps = state => ({
   cart: state.cart
