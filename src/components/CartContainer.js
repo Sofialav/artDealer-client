@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import Cart from "./Cart";
 import BillingInfo from "./BillingInfo";
+import { removeFromCart } from "../store/actions";
 
 class CartContainer extends Component {
   state = {
@@ -23,7 +24,6 @@ class CartContainer extends Component {
     );
     this.setState({ ...this.state, total: totalPrice });
   }
-
   render() {
     return (
       <div className="container-fluid text-center">
@@ -33,7 +33,11 @@ class CartContainer extends Component {
           </h2>
           <hr className="mt-2 mb-5"></hr>
           <main className="row text-center justify-content-md-center">
-            <Cart cart={this.props.cart} showTotal={this.showTotal} />
+            <Cart
+              cart={this.props.cart}
+              showTotal={this.showTotal}
+              handleRemove={this.handleRemove}
+            />
             <BillingInfo
               values={this.state}
               onChange={this.onChange}
@@ -60,8 +64,11 @@ class CartContainer extends Component {
       [event.target.name]: event.target.value
     });
   };
+  handleRemove = artwork => {
+    this.props.removeFromCart(artwork);
+  };
 }
 const mapStateToProps = state => ({
   cart: state.cart
 });
-export default connect(mapStateToProps)(CartContainer);
+export default connect(mapStateToProps, { removeFromCart })(CartContainer);

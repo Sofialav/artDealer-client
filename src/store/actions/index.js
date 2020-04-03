@@ -12,6 +12,7 @@ export const ARTIST_FETCHED = "ARTIST_FETCHED";
 export const ARTIST_INFO_FETCHED = "ARTIST_INFO_FETCHED";
 export const ARTWORK_INFO_FETCHED = "ARTWORK_INFO_FETCHED";
 export const ARTWORK_TO_CART = "ARTWORK_TO_CART";
+export const REMOVE_FROM_CART = "REMOVE_FROM_CART";
 // loading artworks
 const artworksFetched = artworks => ({
   type: ARTWORKS_FETCHED,
@@ -141,4 +142,12 @@ const artworkToCart = artwork => ({
 });
 export const addToCart = artwork => dispatch => {
   dispatch(artworkToCart(artwork));
+};
+// Remove from cart
+const artworkFromCart = id => ({
+  type: REMOVE_FROM_CART,
+  id
+});
+export const removeFromCart = id => dispatch => {
+  dispatch(artworkFromCart(id));
 };

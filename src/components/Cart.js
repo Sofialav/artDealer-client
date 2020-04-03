@@ -23,7 +23,11 @@ class Cart extends Component {
               {artwork.artist.name} {artwork.artist.surname}
             </div>
             <div className="mt-5 mx-5 ">Price: € {artwork.price}</div>
-            <button type="submit" className="btn btn-secondary btn-lg my-2">
+            <button
+              type="submit"
+              className="btn btn-secondary btn-lg my-2"
+              onClick={() => this.props.handleRemove(artwork.id)}
+            >
               Remove
             </button>
           </div>
