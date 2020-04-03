@@ -35,7 +35,7 @@ class ArtworkInfo extends Component {
             <button
               type="submit"
               className="btn btn-secondary btn-lg mb-5"
-              onClick={this.props.toCart(artwork)}
+              onClick={() => this.props.toCart(artwork)}
             >
               Add to cart
             </button>
