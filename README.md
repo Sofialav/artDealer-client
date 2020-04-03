@@ -85,4 +85,4 @@ Demo will be here later
 
 This project was bootstrapped using the create-react-app
 
-⭐️ [**The standard create-react-app docs can be found in here**](https://github.com/Sofialav/artDealer-client/blob/master/create-react-app-docks.md)
+⭐️ [**The standard create-react-app docs can be found in here**](https://github.com/Sofialav/artDealer-client/blob/master/create-react-app-docs.md)
