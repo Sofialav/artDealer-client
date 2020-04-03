@@ -60,6 +60,77 @@ class BillingInfo extends Component {
               />
             </div>
           </section>
+          <section className="form-row">
+            <div className="col form-group">
+              <label htmlFor="address1">Street address *</label>
+              <input
+                className="form-control"
+                id="address1"
+                type="text"
+                name="address1"
+                value={this.props.values.address1}
+                onChange={this.props.onChange}
+                required
+              />
+            </div>
+          </section>
+          <section className="form-row">
+            <div className="col form-group">
+              <label htmlFor="city">City *</label>
+              <input
+                className="form-control"
+                id="city"
+                type="text"
+                name="city"
+                value={this.props.values.city}
+                onChange={this.props.onChange}
+                required
+              />
+            </div>
+            <div className="col form-group">
+              <label htmlFor="postcode">Postcode *</label>
+              <input
+                className="form-control"
+                id="postcode"
+                type="text"
+                name="postcode"
+                value={this.props.values.postcode}
+                onChange={this.props.onChange}
+                required
+              />
+            </div>
+          </section>
+          <section className="form-row">
+            <div className="col form-group">
+              <label htmlFor="phone">Phone *</label>
+              <input
+                className="form-control"
+                id="phone"
+                type="text"
+                name="phone"
+                value={this.props.values.phone}
+                onChange={this.props.onChange}
+                required
+              />
+            </div>
+            <div className="col form-group">
+              <label htmlFor="email">Email *</label>
+              <input
+                className="form-control"
+                id="email"
+                type="text"
+                name="email"
+                value={this.props.values.email}
+                onChange={this.props.onChange}
+                required
+              />
+            </div>
+          </section>
+          <section className="form-row">
+            <div className="col form-group">
+              <div>Total: </div>
+            </div>
+          </section>
         </form>
       </section>
     );

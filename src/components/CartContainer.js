@@ -10,7 +10,6 @@ class CartContainer extends Component {
     country: "",
     region: "",
     address1: "",
-    address2: "",
     city: "",
     postcode: "",
     phone: "",
@@ -25,7 +24,7 @@ class CartContainer extends Component {
             Shopping Cart
           </h2>
           <hr className="mt-2 mb-5"></hr>
-          <main className="row text-center">
+          <main className="row text-center justify-content-md-center">
             <Cart cart={this.props.cart} />
             <BillingInfo
               values={this.state}
