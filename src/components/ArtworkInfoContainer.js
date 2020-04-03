@@ -14,6 +14,17 @@ class ArtworkInfoContainer extends Component {
     }
     return alert("Sorry, this artwork is already sold");
   };
+  displayIsInCart = () => {
+    const inCart = this.props.cart.find(
+      item => item.id === this.props.artwork.id
+    );
+    if (inCart) {
+      const itemInCart = "This artwork is in your cart";
+      return itemInCart;
+    } else {
+      return null;
+    }
+  };
   render() {
     if (!Object.keys(this.props.artwork).length) {
       return <div>Loading...</div>;
@@ -21,14 +32,19 @@ class ArtworkInfoContainer extends Component {
     return (
       <div className="container-fluid text-center">
         <div className="card border-0 shadow my-5 mx-5">
-          <ArtworkInfo artwork={this.props.artwork} toCart={this.handleClick} />
+          <ArtworkInfo
+            artwork={this.props.artwork}
+            toCart={this.handleClick}
+            isInCart={this.displayIsInCart}
+          />
         </div>
       </div>
     );
   }
 }
 const mapStateToProps = state => ({
-  artwork: state.artwork
+  artwork: state.artwork,
+  cart: state.cart
 });
 export default connect(mapStateToProps, { loadArtwork, addToCart })(
   ArtworkInfoContainer
