@@ -13,12 +13,12 @@ class ArtworksContainer extends Component {
     return (
       <div className="container-fluid text-center">
         <div className="card border-0 shadow my-5 mx-5">
-          <main className="row">
+          <main className="row justify-content-md-center">
             <section className="col-sm-2">
               <ArtFilterContainer />
             </section>
-            <section className="col-sm-6 offset-sm-1">
-              <h2 className="font-weight-light text-center mt-4 mb-0 ">
+            <section className="col-sm-8 offset-sm-1">
+              <h2 className="font-weight-bold text-center mt-4 mb-0 ">
                 All Artworks
               </h2>
               <hr className="mt-2 mb-5"></hr>
