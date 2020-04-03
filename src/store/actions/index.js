@@ -11,6 +11,7 @@ export const ARTFORMS_FETCHED = "ARTFORMS_FETCHED";
 export const ARTIST_FETCHED = "ARTIST_FETCHED";
 export const ARTIST_INFO_FETCHED = "ARTIST_INFO_FETCHED";
 export const ARTWORK_INFO_FETCHED = "ARTWORK_INFO_FETCHED";
+export const ARTWORK_TO_CART = "ARTWORK_TO_CART";
 // loading artworks
 const artworksFetched = artworks => ({
   type: ARTWORKS_FETCHED,
@@ -120,4 +121,23 @@ export const loadArtwork = artworkId => async dispatch => {
   } catch (error) {
     errorHandling(dispatch, error);
   }
+};
+// Add to cart
+const artworkToCart = artwork => ({
+  type: ARTWORK_TO_CART,
+  payload: {
+    id: artwork.id,
+    title: artwork.name,
+    artist: {
+      artistId: artwork.artistId,
+      name: artwork.artist.first_name,
+      surname: artwork.artist.last_name
+    },
+    price: artwork.price,
+    ship_country: artwork.ship_country,
+    weight: artwork.weight_kg
+  }
+});
+export const addToCart = artwork => dispatch => {
+  dispatch(artworkToCart(artwork));
 };
