@@ -8,19 +8,21 @@ class MainPageWorks extends Component {
       return <di>"Loading"</di>;
     }
     return (
-      <section className="container-fluid text-center  my-5 mx-5">
-        <h2 className="font-weight-light text-center mt-4 mb-0">
-          Latest Artworks
-        </h2>
-        <hr className="mt-2 mb-5"></hr>
-        <div className="row">
-          <Artworks artworks={this.props.artworks} />
+      <section className="row justify-content-md-center">
+        <div className="col-sm-11">
+          <h2 className="font-weight-bold text-center mt-4 mb-0">
+            Latest Artworks
+          </h2>
+          <hr className="mt-2 mb-5"></hr>
+          <div className="row text-center text-lg-left">
+            <Artworks artworks={this.props.artworks} />
+          </div>
+          <Link to="/artworks">
+            <button className="btn btn-secondary btn-lg mt-2 mb-5">
+              All artworks
+            </button>
+          </Link>
         </div>
-        <Link to="/artworks">
-          <button className="btn btn-secondary btn-lg mt-5">
-            All artworks
-          </button>
-        </Link>
       </section>
     );
   }

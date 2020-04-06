@@ -12,18 +12,18 @@ class MainPageContainer extends Component {
   }
   render() {
     return (
-      <main className="container-fluid text-center">
-        <div className="card border-0 shadow my-5 mx-5">
+      <div className="container-fluid text-center">
+        <main className="card border-0 shadow my-5 mx-5">
           <MainPageWorks artworks={this.props.artworks} />
           <MainPageArtists artists={this.props.artists} />
-        </div>
-      </main>
+        </main>
+      </div>
     );
   }
 }
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   artworks: state.artworks,
-  artists: state.artists
+  artists: state.artists,
 });
 export default connect(mapStateToProps, { loadArtworks, loadArtists })(
   MainPageContainer

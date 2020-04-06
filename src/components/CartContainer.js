@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import Cart from "./Cart";
 import BillingInfo from "./BillingInfo";
-import { removeFromCart } from "../store/actions";
+import { removeFromCart, clearCart } from "../store/actions";
 
 class CartContainer extends Component {
   state = {
@@ -15,14 +15,10 @@ class CartContainer extends Component {
     postcode: "",
     phone: "",
     email: "",
-    total: 0
+    total: 0,
   };
   componentDidMount() {
-    const totalPrice = this.props.cart.reduce(
-      (acc, prod) => prod.price + acc,
-      0
-    );
-    this.setState({ ...this.state, total: totalPrice });
+    this.showTotal();
   }
   render() {
     return (
@@ -37,6 +33,7 @@ class CartContainer extends Component {
               cart={this.props.cart}
               showTotal={this.showTotal}
               handleRemove={this.handleRemove}
+              handleClear={this.handleClear}
             />
             <BillingInfo
               values={this.state}
@@ -49,26 +46,36 @@ class CartContainer extends Component {
       </div>
     );
   }
-  showTotal = price => {
-    console.log("RUNNING", price);
-    this.setState({ ...this.state, total: price });
+  showTotal = () => {
+    const totalPrice = this.props.cart.reduce(
+      (acc, prod) => prod.price + acc,
+      0
+    );
+    this.setState({ ...this.state, total: totalPrice });
   };
-  selectCountry = val => {
+  selectCountry = (val) => {
     this.setState({ ...this.state, country: val });
   };
-  selectRegion = val => {
+  selectRegion = (val) => {
     this.setState({ ...this.state, region: val });
   };
-  onChange = event => {
+  onChange = (event) => {
     this.setState({
-      [event.target.name]: event.target.value
+      [event.target.name]: event.target.value,
     });
   };
-  handleRemove = artwork => {
-    this.props.removeFromCart(artwork);
+  handleRemove = async (artwork) => {
+    await this.props.removeFromCart(artwork);
+    this.showTotal();
+  };
+  handleClear = async () => {
+    await this.props.clearCart();
+    this.showTotal();
   };
 }
-const mapStateToProps = state => ({
-  cart: state.cart
+const mapStateToProps = (state) => ({
+  cart: state.cart,
 });
-export default connect(mapStateToProps, { removeFromCart })(CartContainer);
+export default connect(mapStateToProps, { removeFromCart, clearCart })(
+  CartContainer
+);

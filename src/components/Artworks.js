@@ -5,7 +5,7 @@ class Artworks extends Component {
   displayArtworks = () => {
     if (this.props.artworks.artworks) {
       const artworks = this.props.artworks.artworks;
-      const mapWork = artworks.map(artwork => {
+      const mapWork = artworks.map((artwork) => {
         return (
           <div
             key={artwork.id}

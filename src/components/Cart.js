@@ -4,7 +4,7 @@ class Cart extends Component {
   displayCart = () => {
     const cart = this.props.cart;
     const totalPrice = cart.reduce((acc, prod) => prod.price + acc, 0);
-    const result = cart.map(artwork => {
+    const result = cart.map((artwork) => {
       return (
         <section className="row text-center" key={artwork.id}>
           <div className="col-sm-2 text-center">
@@ -44,6 +44,13 @@ class Cart extends Component {
         <h3 className="font-weight-bold text-center my-5">
           Total: € {totalPrice}
         </h3>
+        <button
+          className="btn btn-secondary btn-lg mb-5"
+          type="submit"
+          onClick={() => this.props.handleClear()}
+        >
+          Clear cart
+        </button>
       </div>
     );
   };
