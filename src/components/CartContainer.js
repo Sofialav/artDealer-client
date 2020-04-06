@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import Cart from "./Cart";
 import BillingInfo from "./BillingInfo";
-import { removeFromCart } from "../store/actions";
+import { removeFromCart, clearCart } from "../store/actions";
 
 class CartContainer extends Component {
   state = {
@@ -33,6 +33,7 @@ class CartContainer extends Component {
               cart={this.props.cart}
               showTotal={this.showTotal}
               handleRemove={this.handleRemove}
+              handleClear={this.handleClear}
             />
             <BillingInfo
               values={this.state}
@@ -67,8 +68,14 @@ class CartContainer extends Component {
     await this.props.removeFromCart(artwork);
     this.showTotal();
   };
+  handleClear = async () => {
+    await this.props.clearCart();
+    this.showTotal();
+  };
 }
 const mapStateToProps = (state) => ({
   cart: state.cart,
 });
-export default connect(mapStateToProps, { removeFromCart })(CartContainer);
+export default connect(mapStateToProps, { removeFromCart, clearCart })(
+  CartContainer
+);
