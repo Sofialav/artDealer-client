@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
 class ArtworkInfo extends Component {
-  displayArtwork = props => {
+  displayArtwork = (props) => {
     if (this.props.artwork.id) {
       const artwork = this.props.artwork;
       const artworkInfo = (
@@ -32,14 +32,34 @@ class ArtworkInfo extends Component {
               </Link>
             )}
             <div className="mb-2 mx-5">€ {artwork.price}</div>
+            {/* check if artwork is in cart */}
             <div className="mb-2 mx-5">{this.props.isInCart()}</div>
-            <button
-              type="submit"
-              className="btn btn-secondary btn-lg mb-5"
-              onClick={() => this.props.toCart(artwork)}
-            >
-              Add to cart
-            </button>
+            {/* check if artwork belongs to logged in artist */}
+            {this.props.artist.id &&
+            this.props.artist.id === artwork.artist.id ? (
+              <div>
+                <button
+                  className="btn btn-secondary btn-lg mb-5 mr-2"
+                  onClick={this.props.update}
+                >
+                  Update info
+                </button>
+                <button
+                  type="submit"
+                  className="btn btn-secondary btn-lg mb-5 ml-2"
+                >
+                  Remove artwork
+                </button>
+              </div>
+            ) : (
+              <button
+                type="submit"
+                className="btn btn-secondary btn-lg mb-5"
+                onClick={() => this.props.toCart(artwork)}
+              >
+                Add to cart
+              </button>
+            )}
             {props.children}
             <div className="mb-5 mx-5">{artwork.description}</div>
           </section>
