@@ -44,7 +44,7 @@ class BillingInfo extends Component {
                 id="country"
                 name="country"
                 value={this.props.values.country}
-                onChange={val => this.props.selectCountry(val)}
+                onChange={(val) => this.props.selectCountry(val)}
                 required
               />
             </div>
@@ -56,7 +56,7 @@ class BillingInfo extends Component {
                 name="region"
                 country={this.props.values.country}
                 value={this.props.values.region}
-                onChange={val => this.props.selectRegion(val)}
+                onChange={(val) => this.props.selectRegion(val)}
                 required
               />
             </div>
@@ -150,6 +150,9 @@ class BillingInfo extends Component {
     return <div className="col-sm-5 text-center">{personalData}</div>;
   };
   render() {
+    if (this.props.values.total === 0) {
+      return null;
+    }
     return <this.displayBilling />;
   }
 }

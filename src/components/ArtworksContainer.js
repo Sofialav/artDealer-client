@@ -32,7 +32,7 @@ class ArtworksContainer extends Component {
     );
   }
 }
-const mapStateToProps = state => ({
-  artworks: state.artworks
+const mapStateToProps = (state) => ({
+  artworks: state.artworks,
 });
 export default connect(mapStateToProps, { loadArtworks })(ArtworksContainer);
