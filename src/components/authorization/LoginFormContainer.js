@@ -6,14 +6,14 @@ import { login } from "../../store/actions/authorization";
 class LoginFormContainer extends Component {
   state = { login: "", password: "" };
 
-  onSubmit = event => {
+  onSubmit = (event) => {
     event.preventDefault();
     this.props.login(this.state, this.props.history);
     this.setState({ login: "", password: "" });
   };
-  onChange = event => {
+  onChange = (event) => {
     this.setState({
-      [event.target.name]: event.target.value
+      [event.target.name]: event.target.value,
     });
   };
 
@@ -23,7 +23,7 @@ class LoginFormContainer extends Component {
         <div className="row">
           <div className="col-md-9 col-lg-8 mx-auto">
             <h3 className="font-weight-light text-center mt-4 mb-0">LOGIN</h3>
-            <hr class="mt-2 mb-5"></hr>
+            <hr className="mt-2 mb-5"></hr>
             <LoginForm
               onSubmit={this.onSubmit}
               onChange={this.onChange}

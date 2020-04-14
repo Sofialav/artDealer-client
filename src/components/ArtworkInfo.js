@@ -39,8 +39,8 @@ class ArtworkInfo extends Component {
             this.props.artist.id === artwork.artist.id ? (
               <div>
                 <button
-                  type="submit"
                   className="btn btn-secondary btn-lg mb-5 mr-2"
+                  onClick={this.props.update}
                 >
                   Update info
                 </button>

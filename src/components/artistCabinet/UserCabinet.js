@@ -14,7 +14,7 @@ class UserCabinet extends Component {
           <h2 className="font-weight-light text-center mt-4 mb-0 font-weight-bold">
             Art Cabinet of {this.props.artist.login}
           </h2>
-          <hr class="mt-2 mb-5"></hr>
+          <hr className="mt-2 mb-5"></hr>
           <ArtistInfo artist={this.props.artist} />
           <section>
             <Link to={`/myPage/newArtwork`}>
@@ -22,17 +22,15 @@ class UserCabinet extends Component {
                 Post new artwork
               </button>
             </Link>
-            <Link>
-              <button className="btn btn-secondary btn-lg mt-5 ml-2">
-                Update personal info
-              </button>
-            </Link>
+            <button className="btn btn-secondary btn-lg mt-5 ml-2">
+              Update personal info
+            </button>
           </section>
           <section className="container-fluid text-center  my-5 mx-5">
             <h2 className="font-weight-light text-center mt-4 mb-0">
               My Artworks
             </h2>
-            <hr class="mt-2 mb-5"></hr>
+            <hr className="mt-2 mb-5"></hr>
             <div className="row">
               <Artworks artworks={this.props.artist} />
             </div>

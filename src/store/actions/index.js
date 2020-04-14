@@ -14,6 +14,7 @@ export const ARTWORK_INFO_FETCHED = "ARTWORK_INFO_FETCHED";
 export const ARTWORK_TO_CART = "ARTWORK_TO_CART";
 export const REMOVE_FROM_CART = "REMOVE_FROM_CART";
 export const EMPTY_CART = "EMPTY_CART";
+
 // loading artworks
 const artworksFetched = (artworks) => ({
   type: ARTWORKS_FETCHED,
@@ -158,4 +159,30 @@ const emptyCart = () => ({
 });
 export const clearCart = () => (dispatch) => {
   dispatch(emptyCart());
+};
+// Delete artwork WIP
+// export const deleteArtwork = (artwork, jwt) => (dispatch) => {
+//   try {
+//     const reqHeader = "Bearer " + jwt;
+//   } catch (error) {
+//     errorHandling(dispatch, error);
+//   }
+// };
+// Update artwork info
+const artworkUpdated = (artwork) => ({
+  type: "ARTWORK_UPDATED",
+  artwork,
+});
+export const updateArtwork = (artworkId, jwt, data) => async (dispatch) => {
+  try {
+    const reqHeader = "Bearer " + jwt;
+    console.log(data);
+    const artwork = await superagent
+      .put(`${baseUrl}/artworks/${artworkId}`)
+      .set("Authorization", reqHeader)
+      .send(data);
+    dispatch(artworkUpdated(artwork.body));
+  } catch (error) {
+    errorHandling(dispatch, error);
+  }
 };

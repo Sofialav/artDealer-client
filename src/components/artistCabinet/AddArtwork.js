@@ -21,6 +21,7 @@ class AddArtwork extends Component {
                 values={this.props.values}
                 onChange={this.props.onChange}
                 onSubmit={this.onSubmit}
+                buttonName="Add artwork"
               />
             </div>
           </section>

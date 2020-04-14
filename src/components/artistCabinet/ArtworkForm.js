@@ -81,7 +81,7 @@ class ArtworkForm extends Component {
           type="submit"
           className="btn btn-lg btn-block btn-secondary btn-login text-uppercase font-weight-bold my-5"
         >
-          Add artwork
+          {this.props.buttonName}
         </button>
       </form>
     );
